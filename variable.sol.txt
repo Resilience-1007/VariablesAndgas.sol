@@ -1,0 +1,29 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract VariablesAndGas {
+    // State variables (stored on blockchain)
+    uint public number = 10;
+    string public name = "Resilience";
+    bool public isActive = true;
+
+    // Function to update a number (costs gas)
+    function setNumber(uint _newNumber) public {
+        number = _newNumber;
+    }
+
+    // Function to read data (free - view)
+    function getNumber() public view returns (uint) {
+        return number;
+    }
+
+    // Function to demonstrate local variable
+    function localExample() public pure returns (uint) {
+        uint localValue = 5; // only exists inside this function
+        return localValue;
+    }
+
+    // Function to show global variable usage
+    function getSender() public view returns (address) {
+        return msg.sender;
+    }
